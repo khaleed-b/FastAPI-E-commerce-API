@@ -16,7 +16,11 @@ app = FastAPI(
 # CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # In production, specify actual origins
+    allow_origins=[ "http://localhost",
+    "http://localhost:5173",  # local dev
+    "https://69095a66c3abc9af3e929366--aesthetic-rolypoly-bf1dbc.netlify.app",  # your Netlify preview
+    "https://aesthetic-rolypoly-bf1dbc.netlify.app",  # final Netlify URL (future)
+]],  # In production, specify actual origins
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
