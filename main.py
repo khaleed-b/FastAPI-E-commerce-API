@@ -1,11 +1,14 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.database import engine
-from app.models import Base
+from app.models import Base, Product
 from app.routes import auth, users, products, orders
 
 # Create database tables
+print(">>> Creating database tables...")
 Base.metadata.create_all(bind=engine)
+print(">>> Tables created successfully!")
+
 
 app = FastAPI(
     title="E-Commerce API",
